@@ -17,6 +17,7 @@ public class Main {
         listBook();
         searchBook("Arbaouna Hadith");
         filterByYear(2015, 2020);
+        System.out.println("ALl book s pages = "+ library.countAllBookPages());
     }
 
     static void filterByYear(int startYear, int endYear) {

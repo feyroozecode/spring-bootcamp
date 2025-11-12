@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +10,9 @@ public class Library {
         this.books = new ArrayList<>();
     }
 
-    public void barrowBook(Book book){
+
+
+    public void barrowBook(Book book, String borrowerId){
 
     }
 
@@ -49,5 +52,13 @@ public class Library {
                 .filter(b -> Integer.parseInt(b.publishYear) >= startingYear && Integer.parseInt(b.publishYear) <= endingYear)
                 .map(Book.class::cast)
                 .collect(Collectors.toList());
+    }
+
+    public int countAllBookPages() {
+        int totalPages = 0;
+        for (int i = 0; i<= books.size() -1 ; i++) {
+            totalPages += Integer.parseInt(books.get(i).pages);
+        }
+        return totalPages;
     }
 }
