@@ -5,17 +5,17 @@ public class Book {
     public String isbn;
     public String pages;
     public String publishYear;
-    public Book(String name, String author, String publisher, String isbn) {
+    public Book(String name, String author, String publisher, String isbn,  String pages, String publishYear) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
         this.isbn = isbn;
-        this.pages = "0";
-        this.publishYear = "0";
+        this.pages = pages;
+        this.publishYear = publishYear;
     }
 
     @Override
     public String toString() {
-        return this.name + " " + this.author + " " + this.publisher + " " + this.isbn;
+        return this.name + " " + this.author + " " + this.publisher + " " + this.isbn  + " " + this.pages + " " + this.publishYear;
     }
 }

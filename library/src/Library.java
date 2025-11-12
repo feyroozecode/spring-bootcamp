@@ -30,10 +30,23 @@ public class Library {
     }
 
     public List<Book> searchBookByTitle(String query){
-
-
         return this.books.stream()
                 .filter(b -> b.name.startsWith(query))
+                .map(Book.class::cast)
+                .collect(Collectors.toList());
+    }
+
+    public List<Book> searchBookByAuthor(String name){
+
+        return this.books.stream()
+                .filter(b-> b.author.startsWith(name))
+                .map(Book.class::cast)
+                .collect(Collectors.toList());
+    }
+
+    public List<Book> filterByYear(int startingYear , int endingYear){
+        return this.books.stream()
+                .filter(b -> Integer.parseInt(b.publishYear) >= startingYear && Integer.parseInt(b.publishYear) <= endingYear)
                 .map(Book.class::cast)
                 .collect(Collectors.toList());
     }

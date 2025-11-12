@@ -6,17 +6,24 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static List<Book> books = List.of(
-            new Book("Arbaouna Hadith", "Annawawiy","Daar AL-Athar", "012345"),
-            new Book("Umdatul Ahkaam", "Aal Basam","Daar Al-Athar", "0654322"),
-            new Book("KItabu Attawhid", "SHekh. Muhammad IbnABdoulwahab","Daar Al-Athar", "0654322")
+            new Book("Arbaouna Hadith", "Annawawiy","Daar AL-Athar", "012345", "25", "2011"),
+            new Book("Umdatul Ahkaam", "Aal Basam","Daar Al-Athar", "0654322", "255", "2018"),
+            new Book("KItabu Attawhid", "SHekh. Muhammad IbnABdoulwahab","Daar Al-Athar", "0654322", "277", "1990")
     );
     public static Library library = new Library(books);
-
 
     public static void main(String[] args) {
         populateLib();
         listBook();
         searchBook("Arbaouna Hadith");
+        filterByYear(2015, 2020);
+    }
+
+    static void filterByYear(int startYear, int endYear) {
+        System.out.println("Filtering by year betwen  "+ startYear+" to "+endYear);
+        for (Book book : library.filterByYear(startYear, endYear)) {
+            System.out.println(book);
+        }
     }
 
     static void searchBook(String query) {
@@ -31,6 +38,7 @@ public class Main {
             System.out.println(book);
         }
     }
+
 
     private static void populateLib() {
         library.books.addAll(books);
