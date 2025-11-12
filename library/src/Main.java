@@ -9,7 +9,6 @@ public class Main {
             new Book("Arbaouna Hadith", "Annawawiy","Daar AL-Athar", "012345"),
             new Book("Umdatul Ahkaam", "Aal Basam","Daar Al-Athar", "0654322"),
             new Book("KItabu Attawhid", "SHekh. Muhammad IbnABdoulwahab","Daar Al-Athar", "0654322")
-
     );
     public static Library library = new Library(books);
 
@@ -22,7 +21,7 @@ public class Main {
 
     static void searchBook(String query) {
         System.out.println("Searching for: " + query);
-        for(Book found : library.searchBook(query)){
+        for(Book found : library.searchBookByTitle(query)){
             System.out.println(found);
         }
     }
@@ -34,8 +33,6 @@ public class Main {
     }
 
     private static void populateLib() {
-      
         library.books.addAll(books);
-
     }
 }

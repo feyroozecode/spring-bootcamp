@@ -29,7 +29,7 @@ public class Library {
         return this.books.get(index);
     }
 
-    public List<Book> searchBook(String query){
+    public List<Book> searchBookByTitle(String query){
 
 
         return this.books.stream()
