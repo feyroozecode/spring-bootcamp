@@ -1,0 +1,11 @@
+GET 127.0.0.1:8080/api/v1/tasks
+
+###
+POST 127.0.0.1:8080/api/v1/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Go to School",
+    "description": "Go to the School"
+}
