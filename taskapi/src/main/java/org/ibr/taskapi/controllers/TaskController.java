@@ -1,5 +1,8 @@
-package org.ibr.taskapi;
+package org.ibr.taskapi.controllers;
 
+import org.ibr.taskapi.models.Task;
+import org.ibr.taskapi.models.TaskCreationDTO;
+import org.ibr.taskapi.services.TaskService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +29,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public Task createTask(@RequestBody Task task) {
+    public Task createTask(@RequestBody TaskCreationDTO task) {
         return taskService.createTask(task);
     }
 }

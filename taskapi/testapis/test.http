@@ -6,6 +6,6 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "Go to School",
+    "title": "Go to School",
     "description": "Go to the School"
 }

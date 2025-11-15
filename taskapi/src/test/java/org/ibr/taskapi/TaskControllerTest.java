@@ -2,10 +2,12 @@ package org.ibr.taskapi;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.ibr.taskapi.controllers.TaskController;
+import org.ibr.taskapi.models.Task;
+import org.ibr.taskapi.services.TaskService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -35,7 +37,7 @@ public class TaskControllerTest {
     void shouldCreateTask() throws Exception {
         Task task = createSampleTask();
 
-        when(taskService.createTask(any(Task.class))).thenReturn(task);
+        when(taskService.createTask(any(org.ibr.taskapi.models.TaskCreationDTO.class))).thenReturn(task);
 
         mockMvc.perform(post("/api/v1/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -45,6 +47,7 @@ public class TaskControllerTest {
                 .andExpect(jsonPath("$.name").value("Read quraan"))
                 .andExpect(jsonPath("$.description").value("Read Surat Alkahf"));
     }
+
 
 
 }
